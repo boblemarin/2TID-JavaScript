@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title>Q</title>
+	<style type="text/css">
+
+	body {
+		background: white;
+	}
+	div#chose {
+		background: black;
+		width: 60px;
+		height: 60px;
+		position: absolute;
+		left: 300px;
+		top: 300px;
+		border-radius: 60px;
+		-webkit-transition: all .25s cubic-bezier(.67,1.9,.33,.68);
+	}
+	</style>
+</head>
+<body>
+	<div id="chose"></div>
+
+	<script type="text/javascript">
+
+var truc = document.getElementById("chose");
+
+function onDocumentDown(event){
+	truc.style.left = event.pageX - 30 + "px";
+	truc.style.top = event.pageY - 30 + "px";
+}
+document.addEventListener("mousedown",onDocumentDown,false);
+
+function onDocumentUp(event){
+	console.log(event);
+	truc.style.left = Math.random() * window.innerWidth + "px";
+	truc.style.top = Math.random() * window.innerHeight + "px";
+}
+document.addEventListener("mouseup",onDocumentUp,false);
+
+
+
+	</script>
+
+
+
+
+</body>
+
+
+</html>

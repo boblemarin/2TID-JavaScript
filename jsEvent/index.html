@@ -1,0 +1,52 @@
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8" />
+	<style type="text/css">
+
+.circle {
+	position: absolute;
+	top: 100px;
+	left: 100px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background: black;
+	-webkit-transition: all .5s cubic-bezier(.21,2,.57,.61);
+}
+
+
+	</style>
+</head>
+<body>
+
+<div id="target" class="circle"></div>
+<script type="text/javascript">
+
+// conserver une référence vers la div qu'on va manipuler (optimisation)
+var tgt = document.getElementById("target");
+
+function myClickListener(event){
+	// générer une nouvelle taille aléatoire (entre 30 et 180)
+	var size = 30 + Math.random() * 150;
+	// changer la position
+	tgt.style.left = event.pageX - (size/2) + "px";
+	tgt.style.top = event.pageY - (size/2) + "px";
+	// appliquer la nouvelle taille
+	tgt.style.width = size + "px";
+	tgt.style.height = size + "px";
+	// changer la couleur
+	tgt.style.backgroundColor = "rgb(" + Math.round(Math.random()*255) + "," 
+										+ Math.round(Math.random()*255) + ","
+										+ Math.round(Math.random()*255) + ")";
+}
+
+// écouter l'événement "click" sur le document, et y associer la fonction myClicListener
+document.addEventListener( "click", myClickListener, false );
+
+</script>
+
+
+
+</body>
+</html>

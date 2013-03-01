@@ -1,0 +1,71 @@
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+html, body { height: 100% }
+body {
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	/*background: white;*/
+	background: -webkit-canvas(animation) repeat-y center top;
+}
+canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+	</style>
+</head>
+<body>
+<canvas id="can"></canvas>
+<script type="text/javascript">
+
+var canvas = document.getElementById("can"),
+	//ctx = canvas.getContext("2d"),
+	sw = window.innerWidth,
+	sh = window.innerHeight,
+	ctx = document.getCSSCanvasContext('2d', 'animation', sw, sh>>1),
+	centerX = sw >> 1,
+	centerY = sh >> 1,
+	radius = 180,
+	numSquares = 180,
+	squareSize = 100,
+	count = 0;
+
+canvas.width = sw;
+canvas.height = sh;
+
+ctx.strokeStyle = "black";
+ctx.fillStyle = "white";
+ctx.lineWidth = 1;
+
+
+setInterval(function(){
+	ctx.clearRect(0,0,sw,sh);
+	for(var i=0; i<numSquares; i++ ) {
+		ctx.save();
+		ctx.beginPath();
+
+		var angle = Math.PI * 2 / numSquares * i;
+		
+		ctx.translate(centerX + Math.sin(angle) * radius, centerY + Math.cos(angle) * radius);
+		ctx.rotate(Math.PI * 2/numSquares*i + count*0.03);
+
+		ctx.rect( -squareSize>>1, -squareSize>>1, squareSize, squareSize );
+		
+		ctx.fill();
+		ctx.stroke();
+		ctx.restore();
+	}
+	count++;
+},20);
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8" />
+	<style type="text/css">
+body{
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+}
+.circle {
+	box-size: boder-box;
+	position: absolute;
+	top: 100px;
+	left: 100px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	border: 5px solid black;
+	background: black;
+	-webkit-transition: all .5s cubic-bezier(.21,2,.57,.61);
+	opacity: .2;
+}
+
+
+	</style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+function rndProps(target){
+	var size = 30 + Math.random() * 150;
+	// changer la position
+	target.style.left = Math.random()*(window.innerWidth-size) + "px";
+	target.style.top = Math.random()*(window.innerHeight-size) + "px";
+	// appliquer la nouvelle taille
+	target.style.width = size + "px";
+	target.style.height = size + "px";
+	// changer la couleur
+	target.style.backgroundColor = "rgb(" + Math.round(Math.random()*255) + "," 
+										+ Math.round(Math.random()*255) + ","
+										+ Math.round(Math.random()*255) + ")";
+	setTimeout(rndProps,1300+Math.random()*1000,target);
+}
+
+var n = 40, d;
+while(n--){
+	d = document.createElement("div");
+	d.className = "circle";
+	document.body.appendChild(d);
+	rndProps(d);
+}
+
+</script>
+
+
+
+</body>
+</html>

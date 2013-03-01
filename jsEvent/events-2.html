@@ -1,0 +1,77 @@
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	body, html { height: 100%; }
+	body {
+		background: white;
+		margin:0;
+		padding: 0;
+	}
+	div {
+		position: absolute;
+		left: 400px;
+		top: 200px;
+		width: 60px;
+		height: 60px;
+		border-radius: 60px;
+		text-align: center;
+		line-height: 60px;
+		font-size: 40px;
+		background: black;
+		color: white;
+		box-size: border-box;
+		border: 5px solid #888;
+		cursor: pointer;
+		-webkit-transition: all .2s cubic-bezier(.17,.67,.37,1.18);
+		-moz-transition: all .2s cubic-bezier(.17,.67,.37,1.18);
+		-ms-transition: all .2s cubic-bezier(.17,.67,.37,1.18);
+		-o-transition: all .2s cubic-bezier(.17,.67,.37,1.18);
+		transition: all .2s cubic-bezier(.17,.67,.37,1.18);
+	}
+
+	</style>
+</head>
+<body>
+	<div id="monQ">Q</div>
+
+
+	<script type="text/javascript">
+
+var monQ = document.getElementById("monQ"),
+	positionX = 400,
+	positionY = 200,
+	step = 20;
+
+function toucheDown(event){
+	switch(event.keyCode){
+		case 38: //up
+			positionY -= step;
+			monQ.style.top = positionY + "px";
+			break;
+		case 40: // down
+			positionY += step;
+			monQ.style.top = positionY + "px";
+			break;
+		case 37: // left
+			positionX -= step;
+			monQ.style.left = positionX + "px";
+			break;
+		case 39: // right
+			positionX += step;
+			monQ.style.left = positionX + "px";
+			break;
+	}
+}
+document.addEventListener("keydown",toucheDown,false);
+
+
+
+	</script>
+
+
+
+
+
+</body>
+</html>

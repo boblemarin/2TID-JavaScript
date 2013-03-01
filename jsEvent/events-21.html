@@ -1,0 +1,62 @@
+<html>
+<head>
+	<title>Q</title>
+	<style type="text/css">
+
+	body {
+		background: white;
+	}
+	div#machin {
+		background: black;
+		width: 60px;
+		height: 60px;
+		position: absolute;
+		left: 300px;
+		top: 300px;
+		border-radius: 60px;
+		-webkit-transition: all .25s cubic-bezier(.67,1.9,.33,.68);
+	}
+	</style>
+</head>
+<body>
+	<div id="machin"></div>
+
+	<script type="text/javascript">
+
+var machin = document.getElementById("machin"),
+	positionX = 300,
+	positionY = 300,
+	step = 60;
+
+function getDown(event){
+	switch( event.keyCode ) {
+		case 38: // up
+			positionY -= step; // idem que:  positionY = positionY - step
+			machin.style.top = positionY + "px";
+			break;
+		case 40: // down
+			positionY += step;
+			machin.style.top = positionY + "px";
+			break;
+		case 37: // left
+			positionX -= step;
+			machin.style.left = positionX + "px";
+			break;
+		case 39: // right
+			positionX += step;
+			machin.style.left = positionX + "px";
+			break;
+	}
+}
+document.addEventListener("keydown",getDown,false);
+
+
+	</script>
+
+
+
+
+</body>
+
+
+</html>
